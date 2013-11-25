@@ -1,6 +1,6 @@
 /* 
 	Server.js by Charlie Calvert 
-	v0.2.0
+	v0.2.1
 */
 
 var http = require('http');
@@ -128,8 +128,10 @@ function getType(ext) {
 		case 'html':
 		case 'htm':
 			return 'text/html';
-		case 'js':
+		case 'js':		
 			return 'text/javascript';
+		case 'json':
+			return 'application/json';
 		default:
 			throw 'Unknown type: ' + ext;
 	}
@@ -145,7 +147,7 @@ function loadContent(request, response) {
 	var path = getPath(request);
 	var ext = getExtension(path);
 	console.log("Request for " + path + " received.");
-	if (ext === 'css' || ext === 'html' || ext === 'htm' || ext === 'js') {
+	if (ext === 'css' || ext === 'html' || ext === 'htm' || ext === 'js' || ext === 'json') {
 		setLastHtml(path, ext);
 		findFile(__dirname, path.replace('\/', ''), function(err, results) {
 			console.log("Found: " + path);

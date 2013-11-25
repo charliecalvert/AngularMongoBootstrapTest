@@ -1,5 +1,5 @@
 {
-	"name": "CraftyDemo03",
+	"name": "AngularMongoBootstrap",
 	"version": "0.1.0",
 	"devDependencies": {
 		"karma-script-launcher": "~0.1.0",
